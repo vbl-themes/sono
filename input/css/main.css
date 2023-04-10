@@ -61,6 +61,7 @@ nav a, nav.meta {
 nav a:hover {
 	text-decoration: underline;
 	text-decoration-thickness: 0.25rem;
+	text-underline-offset: 0.5rem;
 	color: var(--darkfg);
 }
 
