@@ -1,10 +1,19 @@
 <ul>
 	@{
-		var children = OutputPages.FilterSources("{*, !posts, !quotes}")
-			.OrderBy(x => x.GetString("Order"));
-
+		var children = OutputPages.FilterSources(new string[]{"*.md", "**/index.md"}).OrderBy(x => x.GetString("Order"));
 		foreach (var child in children) {
-			<li>@Html.DocumentLink(child)</li>		
+			<li>
+				@Html.DocumentLink(child)
+				@{
+					var sub = OutputPages.GetChildrenOf(child).ToDocumentList();
+					if(sub.Count == 0) continue;
+					<ul>
+						@foreach(var page in sub) {
+							<li>@Html.DocumentLink(page)</li>
+						}
+					</ul>
+				}
+			</li>		
 		}
 	}
 </ul>

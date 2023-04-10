@@ -42,26 +42,54 @@ main {
 }
 
 nav ul, aside ul {
+	list-style: none;
 	padding: 0;
 	margin-bottom: 0.5rem;
 }
 
-nav ul li {
-	display: inline;
+nav > ul > li {
+	display: inline-block;
 	margin-right: 1rem;
 }
 
-nav a, nav.meta {
+nav li ul {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	background-color: white;
+	box-shadow: 3px 3px 3px var(--lightfg);
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.4s, opacity 0.4s ease-out;
+}
+
+nav li ul a {
+	padding: 0.8rem;
+	display: block;
+	color: var(--lightfg);
+	font-size: 0.8em;
+}
+
+nav ul li:hover > a {
+	color: var(--darkfg);
+}
+
+nav ul li:hover ul {
+	visibility: visible;
+	opacity: 1;
+}
+
+nav > ul > li > a, nav.meta {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: var(--lightfg);
 	font-size: 0.8em;
 }
 
-nav a:hover {
+nav > ul > li > a:hover {
 	text-decoration: underline;
 	text-decoration-thickness: 0.25rem;
-	text-underline-offset: 0.5rem;
+	text-underline-offset: 0.2rem;
 	color: var(--darkfg);
 }
 
