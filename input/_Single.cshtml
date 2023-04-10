@@ -4,9 +4,11 @@
 
 <h1>@Model.GetTitle()</h1>
 
-<nav class="meta">
-	@await Html.PartialAsync("_Meta.cshtml", Model)
-</nav>
+@if(@Model.GetBool("IsPost")) {
+	<nav class="meta">
+		@await Html.PartialAsync("_Meta.cshtml", Model)
+	</nav>
+}
 
 <article>
 	@RenderBody()
