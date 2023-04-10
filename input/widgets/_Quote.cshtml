@@ -1,0 +1,8 @@
+<section>
+	<em>Quote</em>
+	@{
+		var quote = Outputs.FromPipeline(nameof(Data)).FilterSources("quotes/**").Take(1).First();
+		<p>@Html.Raw(await quote.GetContentStringAsync())</p>
+		<i>&#8212; @quote.GetString("Author", "Unknown Author"), @quote.GetTitle()</i>;
+	}
+</section>

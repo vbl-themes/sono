@@ -1,0 +1,14 @@
+<section>
+	<em>Recent Posts</em>
+	<ul>
+	@{
+		var children = OutputPages.FilterSources("posts/**")
+			.OrderByDescending(x => x.GetDateTime("Published"))
+			.Take(5);
+
+		foreach (var child in children) {
+			<li>@Html.DocumentLink(child)</li>		
+		}	
+	}
+	</ul>
+</section>

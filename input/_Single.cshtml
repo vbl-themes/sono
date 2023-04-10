@@ -1,0 +1,13 @@
+@{
+	Layout = "_Layout.cshtml";
+}
+
+<h1>@Model.GetTitle()</h1>
+
+<nav class="meta">
+	@await Html.PartialAsync("_Meta.cshtml", Model)
+</nav>
+
+<article>
+	@RenderBody()
+</article>
