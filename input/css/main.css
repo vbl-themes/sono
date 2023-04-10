@@ -20,6 +20,7 @@ header {
 	grid-row: header-start / span 1;
 	display: flex;
 	align-items: flex-end;
+	font-size: 1.2em;
 }
 
 header > nav {
@@ -65,7 +66,7 @@ nav a:hover {
 
 aside section {
 	display: block;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 }
 
 aside ul li {
