@@ -1,13 +1,24 @@
 ArchiveSources: => GetString("PostSources")
 ArchiveOrderKey: Published
 ArchiveOrderDescending: true
-ArchivePageSize: 1
-IncludeInSitemap: false
+ArchivePageSize: 5
 ---
 
 @{
-	Layout = "_Single.cshtml";
-	ViewData.Model = Document.GetChildren().First();
+	Layout = "_Layout.cshtml";
+	var previous = Model.GetDocument(Keys.Previous);
+	var next = Model.GetDocument(Keys.Next);
 }
 
-@Html.Raw(await ViewData.Model.ContentProvider.GetTextReader().ReadToEndAsync())
+@foreach (var post in Model.GetChildren()) {
+	<h1>@Html.DocumentLink(post)</h1>
+	<nav class="meta">
+		@await Html.PartialAsync("_Meta.cshtml", post)
+	</nav>
+	<p>@Html.Raw(post.GetString(Keys.Excerpt))</p>
+}
+
+<nav class="pager">
+	@if(previous != null) { <a href="@previous?.GetLink()">&laquo; Previous</a> }
+	@if(next != null) { <a href="@next?.GetLink()">Next &raquo;</a> }
+</nav>

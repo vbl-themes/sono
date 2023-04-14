@@ -4,7 +4,7 @@
 
 <h1>@Model.GetTitle()</h1>
 
-@if(@Model.GetBool("IsPost")) {
+@if(Model.GetBool("IsPost")) {
 	<nav class="meta">
 		@await Html.PartialAsync("_Meta.cshtml", Model)
 	</nav>
@@ -13,3 +13,9 @@
 <article>
 	@RenderBody()
 </article>
+
+@if(Model.GetBool("IsPost")) {
+	<nav class="pager">
+		@await Html.PartialAsync("_Pager.cshtml", Model)
+	</nav>
+}
