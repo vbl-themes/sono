@@ -126,6 +126,24 @@ h2 {
 	font-size: 1.2em;
 }
 
+div.icon {
+	border: 1px dashed;
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	background: var(--empfg);
+	color: var(--lightbg);
+	font-family: monospace;
+	text-align: center;
+}
+
+div.icon:first-line {
+	font-size: 3rem;
+	font-weight: bolder;
+	font-family: serif;
+	line-height: 4rem;
+}
+
 img[title="center"] {
 	display: block;
 	margin-left: auto;
