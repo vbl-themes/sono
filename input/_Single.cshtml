@@ -13,9 +13,3 @@
 <article>
 	@RenderBody()
 </article>
-
-@if(Model.GetBool("IsPost")) {
-	<nav class="pager">
-		@await Html.PartialAsync("_Pager.cshtml", Model)
-	</nav>
-}
