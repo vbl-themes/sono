@@ -150,6 +150,10 @@ img[title="center"] {
 	margin-right: auto;
 }
 
+img[title="right"] {
+	float: right;
+}
+
 img + em {
 	font-size: 0.7em;
 }
