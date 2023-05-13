@@ -14,9 +14,10 @@ IncludeInSitemap: false
 	Layout = "_Layout.cshtml";
 	var previous = Model.GetDocument(Keys.Previous);
 	var next = Model.GetDocument(Keys.Next);
+	var textinfo = new System.Globalization.CultureInfo("en-US", false).TextInfo;
 }
 
-<h1>@Document.GetTitle()</h1>
+<h1>@textinfo.ToTitleCase(Document.GetTitle())</h1>
 
 @foreach (var tag in Document.GetChildren().OrderByDescending(x => x.GetChildren().Count())) {
 	<h2><a href="@Context.GetLink(tag)">@tag.GetTitle()</a></h2>
