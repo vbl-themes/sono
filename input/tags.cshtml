@@ -20,6 +20,9 @@ IncludeInSitemap: false
 
 @foreach (var tag in Document.GetChildren().OrderByDescending(x => x.GetChildren().Count())) {
 	<h2><a href="@Context.GetLink(tag)">@tag.GetTitle()</a></h2>
+	<nav class="meta">
+		@await Html.PartialAsync("_Meta.cshtml", tag)
+	</nav>
 	<p>@Html.Raw(tag.GetString(Keys.Excerpt))</p>
 }
 

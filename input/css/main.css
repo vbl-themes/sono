@@ -133,10 +133,15 @@ h1, h2 {
 	font-weight: normal;
 	font-size: 1.8em;
 	text-transform: capitalize;
+	margin-top: 3em;
 }
 
 h2 {
 	font-size: 1.2em;
+}
+
+main h1:first-child {
+	margin-top: initial;
 }
 
 div.icon {
