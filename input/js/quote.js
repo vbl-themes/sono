@@ -11,9 +11,10 @@ function LoadQuote(url, node) {
 			.querySelectorAll("item");
 		
 		let el = items[Math.floor(Math.random() * items.length)];
+		let quote = el.querySelector("description").textContent.split("--")
 		node.insertAdjacentHTML(
 			"beforeend",
-			`${el.querySelector("description").textContent}<i>&#8212; ${el.querySelector("author").textContent}, ${el.querySelector("title").textContent}</i>`
+			`${quote[0].replace(/['"]+/g, '')}<p><i>&#8212; ${quote[1]}</i></p>`
 		)
 	}
 	xhr.open("GET", url, true);
