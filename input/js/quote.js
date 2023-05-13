@@ -14,7 +14,7 @@ function LoadQuote(url, node) {
 		let quote = el.querySelector("description").textContent.split("--")
 		node.insertAdjacentHTML(
 			"beforeend",
-			`${quote[0].replace(/['"]+/g, '')}<p><i>&#8212; <a href="${el.querySelector("link").textContent}" target="_blank">${quote[1]}</a></i></p>`
+			`<p>${quote[0].replace(/['"]+/g, '')}</p><p><i>&#8212; <a href="${el.querySelector("link").textContent}" target="_blank">${quote[1]}</a></i></p>`
 		)
 	}
 	xhr.open("GET", url, true);
