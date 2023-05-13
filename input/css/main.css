@@ -196,7 +196,8 @@ div.flex {
 }
 
 img[title="thumb"] {
-	width: 20vw;
+	width: 40vw;
+	max-width: 500px;
 }
 
 blockquote {
