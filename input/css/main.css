@@ -46,6 +46,11 @@ nav {
 	width: 100%;
 }
 
+nav.pager {
+	display: flex;
+	justify-content: space-around;
+}
+
 nav ul, aside ul {
 	list-style: none;
 	padding: 0;
