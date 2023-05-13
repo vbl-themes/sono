@@ -190,5 +190,9 @@ div.flex {
 
 img[title="thumb"] {
 	width: 20vw;
-	
+}
+
+blockquote {
+	border-left: 0.2rem solid var(--darkfg);
+	padding-left: 1rem;
 }
