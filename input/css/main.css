@@ -140,7 +140,7 @@ h2 {
 }
 
 main h1:first-child {
-	margin-top: initial;
+	margin-top: 1.2em;
 }
 
 div.icon {
