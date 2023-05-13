@@ -181,7 +181,9 @@ img + em {
 }
 
 table td:first-child {
-	width: 30%;
+	width: 10vw;
+	vertical-align: top;
+	padding-right: 1rem;
 	white-space: nowrap;
 }
 
