@@ -1,0 +1,16 @@
+@{
+	var parent = OutputPages.GetParentOf(Model);
+	var title = parent.GetBool("IsSubPage") ? parent.GetTitle() : Model.GetTitle();
+	var children = parent.GetBool("IsSubPage") ? OutputPages.GetSiblingsOf(Model, true) : OutputPages.GetChildrenOf(Model);
+}
+
+<section>
+	<em>@title</em>
+	<ul>
+	@{
+		foreach (var child in children.OrderBy(x => x.GetInt("Order"))) {
+			<li>@Html.DocumentLink(child)</li>		
+		}	
+	}
+	</ul>
+</section>

@@ -21,10 +21,17 @@
 			@Html.Partial("_Header")
 		</nav>
 	</header>
-	<aside>
-		@Html.Partial("widgets/_RecentPosts")
-		@RenderSection("Sidebar", required: false)
-	</aside>
+
+	@if(Document.GetBool("IsPost") || Document.GetBool("IsSubPage") || Document.GetLink() == "/") {
+		<aside>
+			@Html.Partial(Document.GetBool("IsSubPage") ? "widgets/_SubPages" : "widgets/_RecentPosts") 
+			@RenderSection("Sidebar", required: false)
+		</aside>
+	}
+	else {
+		IgnoreSection("Sidebar");
+	}
+
 	<main>
 		@RenderBody()
 	</main>

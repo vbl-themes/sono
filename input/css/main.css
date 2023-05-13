@@ -10,7 +10,7 @@ body {
 	margin: 5vh 10vw 5vh 10vw;
 	display: grid;
 	grid-gap: 3vw;
-	grid-template-columns: [left-start] auto [right-start] 20vw [right-end];
+	grid-template-columns: [left-start] auto [right-start] auto [right-end];
 	grid-template-rows: [header-start] 5rem [main-start] auto [footer-end];
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -29,6 +29,7 @@ header > nav {
 }
 
 aside {
+	width: 20vw;
 	grid-column: right-start / span 1;
 	grid-row: main-start / span 1;
 	font-size: 0.9em;
@@ -156,4 +157,22 @@ img[title="right"] {
 
 img + em {
 	font-size: 0.7em;
+}
+
+table td:first-child {
+	width: 30%;
+	white-space: nowrap;
+}
+
+table {
+	width: 100%;
+}
+
+div.flex {
+	display: flex;
+}
+
+img[title="thumb"] {
+	width: 20vw;
+	
 }
