@@ -55,6 +55,15 @@ nav ul, aside ul {
 nav > ul > li {
 	display: inline-block;
 	margin-right: 2rem;
+	font-size: 0.8em;
+}
+
+nav.meta ul li {
+	margin: 0;
+}
+
+nav.meta ul li + li::before {
+	content: " | "
 }
 
 nav li ul {
@@ -72,7 +81,6 @@ nav li ul a {
 	padding: 0.8rem;
 	display: block;
 	color: var(--lightfg);
-	font-size: 0.8em;
 }
 
 nav ul li:hover > a {
@@ -88,7 +96,6 @@ nav > ul > li > a, nav.meta {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: var(--lightfg);
-	font-size: 0.8em;
 }
 
 nav > ul > li > a:hover {
@@ -96,6 +103,10 @@ nav > ul > li > a:hover {
 	text-decoration-thickness: 0.25rem;
 	text-underline-offset: 0.2rem;
 	color: var(--darkfg);
+}
+
+nav.meta a:hover {
+	text-decoration: none;
 }
 
 aside section {
@@ -121,6 +132,7 @@ a {
 h1, h2 {
 	font-weight: normal;
 	font-size: 1.8em;
+	text-transform: capitalize;
 }
 
 h2 {

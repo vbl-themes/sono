@@ -1,1 +1,9 @@
-<time>@Model.GetDateTime(WebKeys.Published).ToString("dd. MMMM yyyy", new System.Globalization.CultureInfo("en_US"))</time>
+<ul>
+	<li><time>@Model.GetDateTime(WebKeys.Published).ToString("dd. MMMM yyyy", new System.Globalization.CultureInfo("en_US"))</time></li>
+	@foreach (var tag in Model.GetList<string>("Tags") ?? new List<string>()) {
+		var doc = OutputPages[$"tags/{@NormalizedPath.OptimizeFileName(tag)}/index.html"].FirstOrDefault();
+		if (doc == null) continue;
+
+		<li><a href="@Context.GetLink(doc)">@tag</a></li>
+	}
+</ul>

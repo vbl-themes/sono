@@ -1,0 +1,29 @@
+ArchiveSources: => GetString("PostSources")
+ArchiveOrderKey: Published
+ArchiveKey: Tags
+ArchiveOrderDescending: true
+ArchivePageSize: 10
+ArchiveTitle: => GetString("GroupKey")
+ArchiveKeyComparer: => StringComparer.OrdinalIgnoreCase.ToConvertingEqualityComparer()
+ArchiveDestination: >
+  => GetInt("Index") < 2 ? $"tags/{NormalizedPath.OptimizeFileName(GetString("GroupKey"))}/index.html" : $"tags/{NormalizedPath.OptimizeFileName(GetString("GroupKey"))}/{GetInt("Index")}.html"
+IncludeInSitemap: false
+---
+
+@{
+	Layout = "_Layout.cshtml";
+	var previous = Model.GetDocument(Keys.Previous);
+	var next = Model.GetDocument(Keys.Next);
+}
+
+<h1>@Document.GetTitle()</h1>
+
+@foreach (var tag in Document.GetChildren().OrderByDescending(x => x.GetChildren().Count())) {
+	<h2><a href="@Context.GetLink(tag)">@tag.GetTitle()</a></h2>
+	<p>@Html.Raw(tag.GetString(Keys.Excerpt))</p>
+}
+
+<nav class="pager">
+	@if(previous != null) { <a href="@previous?.GetLink()">&laquo; Previous</a> }
+	@if(next != null) { <a href="@next?.GetLink()">Next &raquo;</a> }
+</nav>
