@@ -22,7 +22,8 @@
 		</nav>
 	</header>
 	<aside>
-		@Html.Partial("_Sidebar")
+		@Html.Partial("widgets/_RecentPosts")
+		@RenderSection("Sidebar", required: false)
 	</aside>
 	<main>
 		@RenderBody()
